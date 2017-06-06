@@ -68,9 +68,13 @@ int main(){
 					random_index[1] = rand()%(2*n);
 					while (random_index[0] == random_index[1])
 						random_index[1] = rand()%(2*n);
-					cost = cost - update_part(n,matrix,partition,random_index);
+					bool tmp;
+					tmp = partition[random_index[0]];
+					partition[random_index[0]] = partition[random_index[1]];
+					partition[random_index[1]] = tmp;	
 				}
 				max_try+=1;
+				cost = calc_cost(n,matrix,partition);
 			}
 		}
 	}
@@ -88,7 +92,7 @@ int main(){
 	fout <<"The value of cost function is:"<<cost<<endl;
 	fout <<endl;
 	
-	//Here is the method of exhaustive search
+	//Here is the method of exhaustive search,only apply for NUM=10
 
 	int cost_best = cost;
 	bool *partition_best;
