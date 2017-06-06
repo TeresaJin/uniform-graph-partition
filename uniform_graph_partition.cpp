@@ -55,7 +55,7 @@ int main(){
 			break;
 	}
 	fout <<endl;
-	fout <<"Here is the partion: "<<endl;
+	fout <<"Here is the partition: "<<endl;
 	fout <<"Vertices in subset 0:"<<endl;
 	for (i = 0;i < (2*n);i++){ 
 		if (partition[i] == 0)
@@ -101,7 +101,7 @@ int main(){
 	}
 
 	fout <<"Result of exhaustive method:"<<endl;
-	fout <<"Here is the partion: "<<endl;
+	fout <<"Here is the partition: "<<endl;
 	fout <<"Vertices in subset 0:"<<endl;
 	for (i = 0;i < (2*n);i++){ 
 		if (partition_best[i] == 0)
