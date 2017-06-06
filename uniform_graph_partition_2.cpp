@@ -37,7 +37,7 @@ int main(){
 	change_index = new int[2];
 
 	int *random_index;
-	random_index = new int[2];
+	random_index = new int[3];
 
 	ofstream fout;
 	fout.open("output.txt");
@@ -63,7 +63,7 @@ int main(){
 			else{  //And some randomization in the partition in order to escape from local optimum
 				
 				for (i=0; i< 500;i++)
-				{
+				{/*// swap betwwen 2 vertices
 					random_index[0] = rand()%(2*n);
 					random_index[1] = rand()%(2*n);
 					while (random_index[0] == random_index[1])
@@ -71,10 +71,27 @@ int main(){
 					bool tmp;
 					tmp = partition[random_index[0]];
 					partition[random_index[0]] = partition[random_index[1]];
-					partition[random_index[1]] = tmp;	
+					partition[random_index[1]] = tmp;	*/ 
+					
+				// swap betwwen 3 vertices
+					random_index[0] = rand()%(2*n);
+					random_index[1] = rand()%(2*n);
+					while (random_index[0] == random_index[1])
+						random_index[1] = rand()%(2*n);
+					random_index[2] = rand()%(2*n);
+					while (random_index[2] == random_index[1] ||random_index[2] == random_index[0] )
+						random_index[2] = rand()%(2*n);
+					
+					bool tmp;
+					tmp = partition[random_index[0]];
+					partition[random_index[0]] = partition[random_index[1]];
+					partition[random_index[1]] = tmp;
+					tmp = partition[random_index[0]];
+					partition[random_index[0]] = partition[random_index[2]];
+					partition[random_index[2]] = tmp; 
 				}
-				max_try+=1;
 				cost = calc_cost(n,matrix,partition);
+				max_try+=1;
 			}
 		}
 	}
