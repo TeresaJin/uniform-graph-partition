@@ -10,7 +10,7 @@
 using namespace std;
 
 #define NUM 10
-#define MAX_TRY 10000
+#define MAX_TRY 10
 
 int main(){
 	int n = NUM; //Number of nodes in one partitiopn;Total nodes=2*n
@@ -62,7 +62,7 @@ int main(){
 				break;
 			else{  //And some randomization in the partition in order to escape from local optimum
 				
-				for (i=0; i< 500;i++)
+				for (i=0; i< 50;i++)
 				{/*// swap betwwen 2 vertices
 					random_index[0] = rand()%(2*n);
 					random_index[1] = rand()%(2*n);
@@ -96,7 +96,7 @@ int main(){
 		}
 	}
 	fout <<endl;
-	fout <<"Here is the partion: "<<endl;
+	fout <<"Here is the partition: "<<endl;
 	fout <<"Vertices in subset 0:"<<endl;
 	for (i = 0;i < (2*n);i++){ 
 		if (partition[i] == 0)
@@ -109,7 +109,7 @@ int main(){
 	fout <<"The value of cost function is:"<<cost<<endl;
 	fout <<endl;
 	
-	//Here is the method of exhaustive search,only apply for NUM=10
+	//Here is the method of exhaustive search (only work for NUM=10)
 
 	int cost_best = cost;
 	bool *partition_best;
@@ -142,7 +142,7 @@ int main(){
 	}
 
 	fout <<"Result of exhaustive method:"<<endl;
-	fout <<"Here is the partion: "<<endl;
+	fout <<"Here is the partition: "<<endl;
 	fout <<"Vertices in subset 0:"<<endl;
 	for (i = 0;i < (2*n);i++){ 
 		if (partition_best[i] == 0)
